@@ -4,22 +4,42 @@ import React, { useState } from "react";
 
 export default function BookingForm({ selectedService, setSelectedService }) {
   const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [issue, setIssue] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    console.log("Star Cool Service Request Logged (Next.js):", {
-      timestamp: new Date().toISOString(),
-      name,
-      phone,
-      serviceType: selectedService,
-      issueDetails: issue,
-    });
+    setSubmitting(true);
 
-    setSubmitted(true);
+    try {
+      const response = await fetch("https://bloggfeature.certifyied.workers.dev/adminApiBlog/api/contact?projectId=17a41d82-d567-4fa8-a9a7-b1397d471e83", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          sender_name: name,
+          sender_email: email,
+          phone_number: phone,
+          subject: `Star Cool Kochi Service Request: ${selectedService.toUpperCase()}`,
+          message: `Appliance Type: ${selectedService}\nIssue Details: ${issue}`
+        })
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        alert("Failed to submit request. Please try again or call us directly.");
+      }
+    } catch (err) {
+      console.error("Star Cool Submission Error:", err);
+      alert("Something went wrong. Please check your internet connection and try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -55,6 +75,17 @@ export default function BookingForm({ selectedService, setSelectedService }) {
                   placeholder="E.g., Rahul Sharma" 
                   value={name}
                   onChange={(e) => setName(e.target.value)}
+                  required 
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="booking-email">Email Address</label>
+                <input 
+                  type="email" 
+                  id="booking-email" 
+                  placeholder="E.g., rahul@example.com" 
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   required 
                 />
               </div>
@@ -98,8 +129,8 @@ export default function BookingForm({ selectedService, setSelectedService }) {
                   required
                 ></textarea>
               </div>
-              <button type="submit" className="btn btn-gradient btn-full" id="submit-booking">
-                Submit Service Request
+              <button type="submit" className="btn btn-gradient btn-full" id="submit-booking" disabled={submitting}>
+                {submitting ? "Submitting Request..." : "Submit Service Request"}
               </button>
             </form>
           ) : (

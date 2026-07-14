@@ -321,7 +321,7 @@ button, input, select, textarea {
   overflow-y: hidden;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
-  padding: 30px 0;
+  padding: 40px calc(50% - 170px);
   gap: 30px;
   scrollbar-width: none;
   transform-style: preserve-3d;
@@ -347,18 +347,15 @@ button, input, select, textarea {
     0% {
       transform: perspective(1200px) rotateY(25deg) translateY(-24px) translateZ(-140px) scale(0.88);
       opacity: 0.6;
-      filter: blur(2px);
     }
     50% {
       transform: perspective(1200px) rotateY(0deg) translateY(12px) translateZ(30px) scale(1.04);
       opacity: 1;
-      filter: blur(0px);
       z-index: 10;
     }
     100% {
       transform: perspective(1200px) rotateY(-25deg) translateY(-24px) translateZ(-140px) scale(0.88);
       opacity: 0.6;
-      filter: blur(2px);
     }
   }
 
@@ -600,7 +597,7 @@ button, input, select, textarea {
 
 .feature-card {
   background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1.5px solid rgba(0, 0, 0, 0.12);
   padding: 40px 30px;
   border-radius: var(--radius-md);
   transition: var(--transition-smooth);
@@ -622,7 +619,7 @@ button, input, select, textarea {
 
 .feature-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(13, 148, 136, 0.2);
+  border-color: var(--teal);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
 }
 
@@ -1043,7 +1040,7 @@ button, input, select, textarea {
   }
   
   .carousel-scroller {
-    padding: 20px 0;
+    padding: 20px calc(50% - 145px);
     gap: 20px;
   }
   
