@@ -217,24 +217,48 @@ export default function Carousel({ setSelectedService }) {
     };
   }, []);
 
-  // 3. Autoplay Implementation (Faster Interval of 2.2s)
-  useEffect(() => {
-    if (isPaused) return;
+  // Helper to scroll to a specific index with snap override support
+  const scrollToIndex = (index, isSmooth = true) => {
+    const scroller = scrollerRef.current;
+    if (!scroller) return;
 
-    const interval = setInterval(() => {
-      const scroller = scrollerRef.current;
-      if (!scroller) return;
+    let targetIndex = index;
+    if (targetIndex < 0) targetIndex = 0;
+    if (targetIndex >= paddedSlideData.length) targetIndex = paddedSlideData.length - 1;
 
-      const nextIndex = activeIndex + 1;
-      const targetItem = itemsRef.current[nextIndex];
-      
-      if (targetItem) {
+    const targetItem = itemsRef.current[targetIndex];
+    if (targetItem) {
+      if (isSmooth) {
+        scroller.style.scrollSnapType = "none";
         const scrollOffset = targetItem.offsetLeft - (scroller.clientWidth / 2) + (targetItem.clientWidth / 2);
         scroller.scrollTo({
           left: scrollOffset,
           behavior: "smooth"
         });
+
+        // Restore scroll snap once the animation finishes
+        setTimeout(() => {
+          if (scroller) {
+            scroller.style.scrollSnapType = "x mandatory";
+          }
+        }, 600);
+      } else {
+        const scrollOffset = targetItem.offsetLeft - (scroller.clientWidth / 2) + (targetItem.clientWidth / 2);
+        scroller.scrollTo({
+          left: scrollOffset,
+          behavior: "instant"
+        });
       }
+      setActiveIndex(targetIndex);
+    }
+  };
+
+  // 3. Autoplay Implementation (Faster Interval of 2.2s)
+  useEffect(() => {
+    if (isPaused) return;
+
+    const interval = setInterval(() => {
+      scrollToIndex(activeIndex + 1, true);
     }, 2200);
 
     return () => clearInterval(interval);
@@ -242,32 +266,11 @@ export default function Carousel({ setSelectedService }) {
 
   const handleIndicatorClick = (index) => {
     const scrollerIdx = index + 2; // offset real slides by index + 2
-    const targetItem = itemsRef.current[scrollerIdx];
-    const scroller = scrollerRef.current;
-    if (targetItem && scroller) {
-      const scrollOffset = targetItem.offsetLeft - (scroller.clientWidth / 2) + (targetItem.clientWidth / 2);
-      scroller.scrollTo({
-        left: scrollOffset,
-        behavior: "smooth"
-      });
-      setActiveIndex(scrollerIdx);
-    }
+    scrollToIndex(scrollerIdx, true);
   };
 
   const handleScrollBtnClick = (direction) => {
-    const scroller = scrollerRef.current;
-    if (!scroller) return;
-
-    const nextIndex = activeIndex + direction;
-    const targetItem = itemsRef.current[nextIndex];
-    if (targetItem) {
-      const scrollOffset = targetItem.offsetLeft - (scroller.clientWidth / 2) + (targetItem.clientWidth / 2);
-      scroller.scrollTo({
-        left: scrollOffset,
-        behavior: "smooth"
-      });
-      setActiveIndex(nextIndex);
-    }
+    scrollToIndex(activeIndex + direction, true);
   };
 
   const handleBookNow = (serviceId) => {

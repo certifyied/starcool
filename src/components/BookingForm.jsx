@@ -112,16 +112,11 @@ export default function BookingForm({ selectedService, setSelectedService }) {
             Fill out the service inquiry form. Our support desk will reach out to you within 10 minutes to verify details and allocate a technician nearby in Kochi.
           </p>
           
-          <div className="direct-contact">
-            <div className="contact-icon">
-              <i className="fa-solid fa-headset text-cyan"></i>
-            </div>
-            <div>
-              <span>Need emergency repair?</span>
-              <a href="tel:+919846012345" className="direct-tel">
-                +91 98460 12345
-              </a>
-            </div>
+          <div className="direct-contact-action" style={{ marginTop: "24px" }}>
+            <a href="tel:+919846012345" className="btn btn-gradient btn-call-large">
+              <i className="fa-solid fa-phone-volume" style={{ marginRight: "8px" }}></i>
+              Call +91 98460 12345
+            </a>
           </div>
         </div>
 

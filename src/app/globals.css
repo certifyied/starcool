@@ -134,16 +134,19 @@ button, input, select, textarea {
 .nav-menu {
   display: flex;
   gap: 32px;
+  align-items: center;
 }
 
 .nav-link {
   font-weight: 500;
   color: rgba(255, 255, 255, 0.8);
   font-size: 16px;
-  padding: 6px 0;
+  padding: 10px 0;
   position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
-
 
 .nav-link::after {
   content: '';
@@ -154,6 +157,55 @@ button, input, select, textarea {
   height: 2px;
   background: var(--gradient-brand);
   transition: var(--transition-smooth);
+}
+
+/* Services Dropdown Menu */
+.nav-item-dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(12px);
+  background-color: #ffffff;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  min-width: 280px;
+  padding: 16px 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.nav-item-dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(4px);
+}
+
+.dropdown-item {
+  padding: 12px 24px;
+  color: #1e293b;
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: var(--transition-smooth);
+  width: 100%;
+  text-align: left;
+  display: block;
+}
+
+.dropdown-item:hover {
+  background-color: #f1f5f9;
+  color: var(--teal);
+  padding-left: 28px;
 }
 
 .nav-link:hover {
@@ -787,33 +839,29 @@ button, input, select, textarea {
   margin-bottom: 40px;
 }
 
-.direct-contact {
-  display: flex;
+.btn-call-large {
+  display: inline-flex;
   align-items: center;
-  gap: 20px;
-  background-color: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  padding: 24px 30px;
-  border-radius: var(--radius-md);
+  gap: 12px;
+  background: var(--gradient-brand);
+  color: #ffffff !important;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 16px 32px;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 4px 15px var(--teal-glow);
+  transition: var(--transition-smooth);
   width: fit-content;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.02);
 }
 
-.contact-icon {
-  font-size: 36px;
+.btn-call-large:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--teal-glow);
+  opacity: 0.95;
 }
 
-.direct-contact span {
-  display: block;
-  font-size: 14px;
-  color: var(--text-secondary);
-  margin-bottom: 4px;
-}
-
-.direct-tel {
-  font-size: 24px;
-  font-weight: 800;
-  color: var(--teal-dark);
+.btn-call-large i {
+  font-size: 20px;
 }
 
 .booking-form-wrapper {
@@ -1039,15 +1087,35 @@ button, input, select, textarea {
     width: 100%;
   }
   
+  .carousel-nav-btn {
+    display: none !important;
+  }
+
   .carousel-scroller {
-    padding: 20px calc(50% - 145px);
-    gap: 20px;
+    padding: 20px calc(50% - 140px) !important;
+    gap: 16px !important;
   }
   
   .carousel-item {
-    flex: 0 0 290px;
+    flex: 0 0 280px !important;
   }
-  
+
+  @keyframes rotate-cylinder {
+    0% {
+      transform: perspective(600px) rotateY(10deg) translateY(-12px) translateZ(-50px) scale(0.94);
+      opacity: 0.75;
+    }
+    50% {
+      transform: perspective(600px) rotateY(0deg) translateY(6px) translateZ(10px) scale(1.02);
+      opacity: 1;
+      z-index: 10;
+    }
+    100% {
+      transform: perspective(600px) rotateY(-10deg) translateY(-12px) translateZ(-50px) scale(0.94);
+      opacity: 0.75;
+    }
+  }
+
   .footer-bottom-content {
     flex-direction: column;
     gap: 10px;
