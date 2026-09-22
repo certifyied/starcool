@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -20,16 +21,27 @@ export default function Navbar() {
           <span>
             <i className="fa-solid fa-circle-check text-cyan"></i> Kochi's #1 Rated Home Appliance Service Center
           </span>
-          <a href="tel:+919846012345" className="phone-link">
-            <i className="fa-solid fa-phone"></i> Call Now: +91 98460 12345
-          </a>
+          <div className="phone-link">
+            <i className="fa-solid fa-phone"></i> Call Now:{" "}
+            <a href="tel:+918590225627" style={{ color: "inherit", textDecoration: "none" }}>+91 85902 25627</a>
+            {" / "}
+            <a href="tel:+918086301409" style={{ color: "inherit", textDecoration: "none" }}>+91 80863 01409</a>
+          </div>
         </div>
       </div>
 
       {/* Header / Navigation */}
       <header className="main-header">
         <div className="container header-container">
-          <Link href="/" className="logo" id="header-logo">
+          <Link href="/" className="logo" id="header-logo" style={{ display: "flex", alignItems: "center", gap: "10px", textDecoration: "none" }}>
+            <Image 
+              src="/logo-icon-cyan.png" 
+              alt="Star Cool Logo" 
+              width={34} 
+              height={34} 
+              style={{ objectFit: "contain" }}
+              priority
+            />
             <span className="logo-text">
               STAR <span className="text-cyan">COOL</span>
             </span>

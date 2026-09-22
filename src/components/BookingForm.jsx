@@ -112,10 +112,14 @@ export default function BookingForm({ selectedService, setSelectedService }) {
             Fill out the service inquiry form. Our support desk will reach out to you within 10 minutes to verify details and allocate a technician nearby in Kochi.
           </p>
           
-          <div className="direct-contact-action" style={{ marginTop: "24px" }}>
-            <a href="tel:+919846012345" className="btn btn-gradient btn-call-large">
+          <div className="direct-contact-action" style={{ marginTop: "24px", display: "flex", gap: "12px", flexWrap: "wrap" }}>
+            <a href="tel:+918590225627" className="btn btn-gradient btn-call-large">
               <i className="fa-solid fa-phone-volume" style={{ marginRight: "8px" }}></i>
-              Call +91 98460 12345
+              Call +91 85902 25627
+            </a>
+            <a href="tel:+918086301409" className="btn btn-secondary btn-call-large">
+              <i className="fa-solid fa-phone-volume" style={{ marginRight: "8px" }}></i>
+              Call +91 80863 01409
             </a>
           </div>
         </div>
@@ -150,7 +154,7 @@ export default function BookingForm({ selectedService, setSelectedService }) {
                 <input 
                   type="tel" 
                   id="booking-phone" 
-                  placeholder="E.g., +91 98460 12345" 
+                  placeholder="E.g., +91 85902 25627" 
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   required 

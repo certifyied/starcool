@@ -1,4 +1,6 @@
 import React from "react";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer({ setSelectedService }) {
   const handleServiceClick = (serviceId) => {
@@ -13,11 +15,18 @@ export default function Footer({ setSelectedService }) {
     <footer className="main-footer" id="contact">
       <div className="container footer-grid">
         <div className="footer-about">
-          <a href="#" className="logo">
+          <Link href="/" className="logo" style={{ display: "flex", alignItems: "center", gap: "10px", textDecoration: "none" }}>
+            <Image 
+              src="/logo-icon-teal.png" 
+              alt="Star Cool Logo" 
+              width={34} 
+              height={34} 
+              style={{ objectFit: "contain" }}
+            />
             <span className="logo-text">
               STAR <span className="text-cyan">COOL</span>
             </span>
-          </a>
+          </Link>
           <p className="footer-desc">
             Professional and high-integrity multi-brand home appliances repair, servicing, and installation in Kochi. Experienced experts at your service.
           </p>
@@ -71,7 +80,7 @@ export default function Footer({ setSelectedService }) {
             <i className="fa-solid fa-location-dot text-cyan"></i> Kochi Bypass Road, Near Vyttila, Kochi, Kerala - 682019
           </p>
           <p>
-            <i className="fa-solid fa-phone text-cyan"></i> <a href="tel:+919846012345">+91 98460 12345</a>
+            <i className="fa-solid fa-phone text-cyan"></i> <a href="tel:+918590225627">+91 85902 25627</a> / <a href="tel:+918086301409">+91 80863 01409</a>
           </p>
           <p>
             <i className="fa-solid fa-envelope text-cyan"></i> <a href="mailto:support@starcoolkochi.com">support@starcoolkochi.com</a>
