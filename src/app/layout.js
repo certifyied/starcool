@@ -45,10 +45,10 @@ export default function RootLayout({ children }) {
     "telephone": "+918590225627",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Kochi Bypass Road, Near Vyttila",
+      "streetAddress": "Near Edappally Church",
       "addressLocality": "Kochi",
       "addressRegion": "Kerala",
-      "postalCode": "682019",
+      "postalCode": "682024",
       "addressCountry": "IN"
     },
     "geo": {

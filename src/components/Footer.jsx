@@ -77,7 +77,7 @@ export default function Footer({ setSelectedService }) {
         <div className="footer-contact">
           <h3>Contact Details</h3>
           <p>
-            <i className="fa-solid fa-location-dot text-cyan"></i> Kochi Bypass Road, Near Vyttila, Kochi, Kerala - 682019
+            <i className="fa-solid fa-location-dot text-cyan"></i> Near Edappally Church, Kochi, Kerala - 682024
           </p>
           <p>
             <i className="fa-solid fa-phone text-cyan"></i> <a href="tel:+918590225627">+91 85902 25627</a> / <a href="tel:+918086301409">+91 80863 01409</a>

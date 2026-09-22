@@ -43,7 +43,7 @@ const serviceDetails = {
     title: "Refrigerator Not Working? Expert Fridge Repair in Kochi",
     h1: "Refrigerator Repair & Thermostat Servicing",
     description: "Star Cool is here to fix all the problems relating to refrigerators. From single-door, double-door, to premium French door refrigerators, we resolve cooling errors at your doorstep.",
-    longDesc: "We address frost buildup, compressor failures, gas leakage, thermostat malfunction, and interior lighting issues. Get immediate doorstep response in Kochi Bypass near you.",
+    longDesc: "We address frost buildup, compressor failures, gas leakage, thermostat malfunction, and interior lighting issues. Get immediate doorstep response near Edappally Church.",
     price: "From ₹450",
     img: "/images/refrigerator.png",
     alt: "Kochi appliance repair for refrigerator",

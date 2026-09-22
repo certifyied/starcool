@@ -35,10 +35,10 @@ export default function Navbar() {
         <div className="container header-container">
           <Link href="/" className="logo" id="header-logo" style={{ display: "flex", alignItems: "center", gap: "10px", textDecoration: "none" }}>
             <Image 
-              src="/logo-icon-cyan.png" 
+              src="/logo-icon-white.png" 
               alt="Star Cool Logo" 
-              width={34} 
-              height={34} 
+              width={46} 
+              height={46} 
               style={{ objectFit: "contain" }}
               priority
             />
