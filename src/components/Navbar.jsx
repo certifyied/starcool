@@ -113,8 +113,11 @@ export default function Navbar() {
                 <Link href="/services/freezer" className="dropdown-item" onClick={handleLinkClick} style={{ color: menuOpen ? "#ffffff" : undefined }}>
                   Freezer Service
                 </Link>
-                <Link href="/services/dishwasher" className="dropdown-item" onClick={handleLinkClick} style={{ color: menuOpen ? "#ffffff" : undefined }}>
-                  Dishwasher Service
+                <Link href="/services/ductable-ac" className="dropdown-item" onClick={handleLinkClick} style={{ color: menuOpen ? "#ffffff" : undefined }}>
+                  Ductable AC Service
+                </Link>
+                <Link href="/services/cassette-ac" className="dropdown-item" onClick={handleLinkClick} style={{ color: menuOpen ? "#ffffff" : undefined }}>
+                  Cassette AC Service
                 </Link>
               </div>
             </div>

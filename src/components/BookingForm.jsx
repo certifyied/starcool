@@ -42,11 +42,19 @@ const commonIssues = {
     "Loud vibration from compressor",
     "Extreme ice sheet accumulation"
   ],
-  dishwasher: [
-    "Dishes coming out dirty / wet",
-    "Water leak from front door seal",
-    "Standing water / drainage failure",
-    "Cycle not starting / selector error"
+  "ductable-ac": [
+    "Poor airflow from ducts",
+    "Compressor not starting",
+    "Water dripping from indoor unit",
+    "High power consumption",
+    "Unusual noise from blower"
+  ],
+  "cassette-ac": [
+    "Water leaking from ceiling unit",
+    "Uneven cooling",
+    "Error codes on display",
+    "Clogged drainage pump",
+    "Remote not responding"
   ]
 };
 
@@ -175,7 +183,8 @@ export default function BookingForm({ selectedService, setSelectedService }) {
                   <option value="tv">Television (LED / OLED)</option>
                   <option value="microwave">Microwave Oven</option>
                   <option value="freezer">Deep Freezer</option>
-                  <option value="dishwasher">Dishwasher</option>
+                  <option value="ductable-ac">Ductable AC</option>
+                  <option value="cassette-ac">Cassette AC</option>
                 </select>
               </div>
 

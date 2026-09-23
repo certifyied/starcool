@@ -84,19 +84,34 @@ const serviceDetails = {
       "Defrost system diagnostic checks"
     ]
   },
-  dishwasher: {
-    title: "Professional Dishwasher Maintenance & Repair Service Kochi",
-    h1: "Professional Dishwasher Maintenance & Repair",
-    description: "Professional dishwasher maintenance and repairing service. Star Cool handles multi-brand built-in and free-standing dishwasher installations.",
-    longDesc: "We resolve water standing errors, spray arm clogging, glass staining, door latch errors, control panel breakdowns, and heating element malfunctions.",
-    price: "From ₹450",
-    img: "/images/dishwasher.png",
-    alt: "Professional dishwasher service",
+  "ductable-ac": {
+    title: "Professional Ductable AC Maintenance & Repair Service Kochi",
+    h1: "Professional Ductable AC Maintenance & Repair",
+    description: "Professional Ductable AC maintenance and repairing service. Star Cool handles complex commercial and residential ductable systems.",
+    longDesc: "We resolve airflow issues, compressor failures, water dripping, thermostat errors, and high power consumption for ductable units.",
+    price: "From ₹599",
+    img: "/images/ac.png",
+    alt: "Professional ductable ac service",
     bullets: [
-      "Spray arm descaling and replacements",
-      "Drain pump motor clearing and fixes",
-      "Heating element replacement with warranty",
-      "Door latch sensor switch diagnostics"
+      "Blower motor cleaning and fixes",
+      "Duct airflow optimization",
+      "Compressor replacement with warranty",
+      "Refrigerant gas leak checks and refilling"
+    ]
+  },
+  "cassette-ac": {
+    title: "Expert Cassette AC Service & Repair in Kochi",
+    h1: "Expert Cassette AC Service & Repair",
+    description: "Specialized Cassette AC maintenance and repairing service. We ensure optimal 360-degree cooling for your commercial spaces.",
+    longDesc: "We resolve water leaking from ceiling units, uneven cooling, error codes, clogged drainage pumps, and PCB failures.",
+    price: "From ₹499",
+    img: "/images/ac.png",
+    alt: "Expert cassette ac service",
+    bullets: [
+      "Ceiling unit deep cleaning",
+      "Drainage pump clearing and fixes",
+      "PCB repair and replacement",
+      "Refrigerant gas leak checks and refilling"
     ]
   }
 };

@@ -59,23 +59,32 @@ const slideData = [
     alt: "Affordable deep freezer repair service"
   },
   {
-    id: "dishwasher",
-    title: "Dishwasher Service",
-    tag: "Dishwasher",
-    desc: "Professional dishwasher maintenance and repairing service",
-    price: "₹450",
-    img: "/images/dishwasher.png",
-    alt: "Professional dishwasher service"
+    id: "ductable-ac",
+    title: "Ductable AC Service",
+    tag: "Ductable AC",
+    desc: "Professional diagnostics, cleaning, and maintenance for Ductable Air Conditioning systems.",
+    price: "₹599",
+    img: "/images/ac.png",
+    alt: "Professional ductable ac service"
+  },
+  {
+    id: "cassette-ac",
+    title: "Cassette AC Service",
+    tag: "Cassette AC",
+    desc: "Expert servicing for ceiling-mounted Cassette ACs, ensuring optimal 360-degree cooling.",
+    price: "₹499",
+    img: "/images/ac.png",
+    alt: "Expert cassette ac service"
   }
 ];
 
 // Double/pad the slide list to achieve seamless infinite scroll boundaries
 const paddedSlideData = [
-  slideData[5], // clone S6 (Index 0)
-  slideData[6], // clone S7 (Index 1)
-  ...slideData,  // original 7 (Indices 2 to 8)
-  slideData[0], // clone S1 (Index 9)
-  slideData[1]  // clone S2 (Index 10)
+  slideData[6], // clone S7 (Index 0)
+  slideData[7], // clone S8 (Index 1)
+  ...slideData,  // original 8 (Indices 2 to 9)
+  slideData[0], // clone S1 (Index 10)
+  slideData[1]  // clone S2 (Index 11)
 ];
 
 export default function Carousel({ setSelectedService }) {
@@ -84,10 +93,10 @@ export default function Carousel({ setSelectedService }) {
   const [activeIndex, setActiveIndex] = useState(3); // Start with second card (S2 is index 3)
   const [isPaused, setIsPaused] = useState(false);
 
-  // Helper to map padded index to standard slideData index (0-6)
+  // Helper to map padded index to standard slideData index (0-7)
   const getRealIndex = (idx) => {
-    if (idx < 2) return idx + 5; 
-    if (idx > 8) return idx - 9; 
+    if (idx < 2) return idx + 6; 
+    if (idx > 9) return idx - 10; 
     return idx - 2; 
   };
 
@@ -118,6 +127,17 @@ export default function Carousel({ setSelectedService }) {
 
       // 1. Seamless Boundary Loop Jumping
       if (calculatedActiveIndex === 1) {
+        // Instant jump to index 9 (same visual item)
+        const targetItem = itemsRef.current[9];
+        if (targetItem) {
+          scroller.scrollTo({
+            left: targetItem.offsetLeft - (scrollerRect.width / 2) + (targetItem.clientWidth / 2),
+            behavior: "instant"
+          });
+          setActiveIndex(9);
+          return;
+        }
+      } else if (calculatedActiveIndex === 0) {
         // Instant jump to index 8 (same visual item)
         const targetItem = itemsRef.current[8];
         if (targetItem) {
@@ -128,18 +148,7 @@ export default function Carousel({ setSelectedService }) {
           setActiveIndex(8);
           return;
         }
-      } else if (calculatedActiveIndex === 0) {
-        // Instant jump to index 7 (same visual item)
-        const targetItem = itemsRef.current[7];
-        if (targetItem) {
-          scroller.scrollTo({
-            left: targetItem.offsetLeft - (scrollerRect.width / 2) + (targetItem.clientWidth / 2),
-            behavior: "instant"
-          });
-          setActiveIndex(7);
-          return;
-        }
-      } else if (calculatedActiveIndex === 9) {
+      } else if (calculatedActiveIndex === 10) {
         // Instant jump to index 2 (same visual item)
         const targetItem = itemsRef.current[2];
         if (targetItem) {
@@ -150,7 +159,7 @@ export default function Carousel({ setSelectedService }) {
           setActiveIndex(2);
           return;
         }
-      } else if (calculatedActiveIndex === 10) {
+      } else if (calculatedActiveIndex === 11) {
         // Instant jump to index 3 (same visual item)
         const targetItem = itemsRef.current[3];
         if (targetItem) {

@@ -11,7 +11,8 @@ const services = [
   { name: "Refrigerator Repair & Maintenance", path: "/services/refrigerator", desc: "No cooling fixes, frost control errors, gas leak repairs, thermostat and relay changes." },
   { name: "Microwave Oven Service & Repair", path: "/services/microwave", desc: "Magnetron heating element replacements, glass tray motor fixes, and microswitch diagnostics." },
   { name: "Deep Freezer Repair & Servicing", path: "/services/freezer", desc: "Commercial chest freezer gas refilling, fan motor fixes, and temperature control installations." },
-  { name: "Professional Dishwasher Repair", path: "/services/dishwasher", desc: "Spray arm descaling, drain pump motor clearing, heating element replacement, and door latch fixes." },
+  { name: "Ductable AC Maintenance & Repair", path: "/services/ductable-ac", desc: "Blower motor cleaning, duct airflow optimization, and compressor replacement." },
+  { name: "Cassette AC Service & Repair", path: "/services/cassette-ac", desc: "Ceiling unit deep cleaning, drainage pump clearing, and PCB repair." },
 ];
 
 export default function SitemapPage() {
