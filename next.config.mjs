@@ -17,12 +17,6 @@ const nextConfig = {
         destination: "/complaint-register",
         permanent: true,
       },
-      {
-        source: "/sitemap",
-        destination:
-          "https://bloggfeature.certifyied.workers.dev/adminApiBlog/api/sitemap.xml?projectId=17a41d82-d567-4fa8-a9a7-b1397d471e83",
-        permanent: false,
-      },
     ];
   },
 };
